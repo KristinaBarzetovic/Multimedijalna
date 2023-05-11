@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="kontakt.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Kontaktirajte nas</title>
+</head>
+<body background="index.html" >
+    <header><a href="index.html" >Pocetna</a></header>
+    <h1>Ukoliko postoji pitanje na koje niste sigurni da znate odgovor, možete nas kontaktirati, a mi ćemo Vam u najkraćem roku pružiti tačan odgovor:</h1>
+    <section>
+        <form name="forma1" onsubmit="return validacija()" method="post" >
+  <input type="text" name="imeiprezime" id="ime"placeholder="Ime i prezime"size="30" required>
+  <p> <input type="text" name="mejl" placeholder="E-mail" maxlength="30" size="30" required > </p>
+  <p> <input type="text" name="pitanje" placeholder="Pitanje koje imate za nas: " maxlength="30" size="30" required > </p>
+  </form>
+
+ <button id="two" onclick="Confirmbox()">
+   POŠALJI
+    </button>
+
+    <p id="d"></p>
+
+
+    <script>
+        function Confirmbox() {
+            var x;
+          
+            if (confirm("Saglasan sam da ovaj sajt koristi moje podatke") == true) {
+              
+                x = "Uspešno ste poslali pitanje, očekujte odgovor na Vašu e-mail adresu u najkraćem roku!";
+            } else {
+                x = "Vaše pitanje nije poslato, pokušajte ponovo!";
+            }
+            document.getElementById("d").innerHTML = x;
+        }
+    </script>
+
+  <script src="javaquery.js"></script>
+
+  </form>
+  <div class="bubbles">
+    <img src="pit.png" width="500" height="300" >
+    <img src="pit.png" width="500" height="300">
+    <img src="pit.png" width="500" height="300">
+   
+ 
+    
+       </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+		function myFunction() {
+			var input = document.getElementById("input-text").value;
+			document.getElementById("output-text").innerHTML = "Zdravo, " + input + "!" + " " +" Srećno!";
+		}
+	</script>
+</head>
+<header><a href="index.html" >Pocetna</a></header>
+<body>
+    <div class="app">
+        <h1>PROVERI SVOJE ZNANJE</h1>
+        <form>
+		<label for="input-text">Unesite vaše ime:</label>
+		<input type="text" id="input-text" name="input-text"><br><br>
+		<input type="button" value="UNESI" onclick="myFunction()">
+	</form>
+	<p id="output-text"></p>
+        <div class="quiz">
+            <h2 id="question">Pitanje</h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            
+            <button id="next-btn">Next</button>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
