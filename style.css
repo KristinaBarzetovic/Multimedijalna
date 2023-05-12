@@ -12,6 +12,11 @@ h1{
  text-align: center;
  
 }
+script{
+    font-size: 45px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ text-align: center; 
+}
 h2{
 font-size: 25px;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -43,12 +48,7 @@ podmain3{
 display: block;
 
 }
- /*   .image{
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }*/
+
 
 p{
 font-style: italic;
@@ -78,10 +78,7 @@ Animacija traje 2 sekunde (animation-duration: 2s), a nakon završetka zadržava
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-}/*
-body{
-    background: #001e4d;
-}*/
+}
 .app{
     background: #fff;
     width: 90%;
@@ -146,35 +143,7 @@ body{
 .incorrect{
     background: #ff9393;
 }
-.question {
-    transform: scale(1);
-    transition: transform 0.5s ease;
-  }
-  
-  .question:hover {
-    transform: scale(1.2);
-  }
-  .question {
-    width: 200px;
-    transition: width 0.5s ease;
-  }
-  
-  .question:hover {
-    width: 300px;
-  }
-  .question {
-    display: inline-block;
-    animation: rotate 2s linear infinite;
-  }
 
-      @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
   .bubbles img{
 width: 50px;
 position: left ;

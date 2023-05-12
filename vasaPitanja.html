@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodavanje pitanja i odgovora</title>
+    <link rel="stylesheet" href="vasaPitanja.css">
+    <style>
+        .correct-answer {
+            color: green;
+        }
+    </style>
+</head>
+<body background="index.html" >
+    <header><a href="index.html" >Pocetna</a></header>
+
+    <h1>Dodavanje pitanja i odgovora</h1>
+    
+    <form id="question-form">
+        <label for="question">Pitanje:</label>
+        <input type="text" id="question" required>
+        
+        <label for="answers">Ponuđeni odgovori (odvojeni zarezom):</label>
+        <input type="text" id="answers" required>
+        
+        <label for="correct-answer">Tačan odgovor:</label>
+        <input type="text" id="correct-answer" required>
+        
+        <button type="submit">Dodaj pitanje</button>
+    </form>
+    
+    <div id="questions-container"></div>
+    
+    <script>
+        const questions = JSON.parse(localStorage.getItem('questions')) || [];
+        const questionsContainer = document.getElementById('questions-container');
+        
+        function saveQuestions() {
+            localStorage.setItem('questions', JSON.stringify(questions));
+        }
+        
+        function renderQuestions() {
+            questionsContainer.innerHTML = '';
+            
+            questions.forEach(function(questionData) {
+                const questionElement = document.createElement('div');
+                const questionHeading = document.createElement('h3');
+                questionHeading.textContent = questionData.question;
+                questionElement.appendChild(questionHeading);
+                
+                const answersList = document.createElement('ul');
+                questionData.answers.forEach(function(answer) {
+                    const answerItem = document.createElement('li');
+                    
+                    if (answer === questionData.correctAnswer) {
+                        answerItem.classList.add('correct-answer');
+                    }
+                    
+                    answerItem.textContent = answer;
+                    answersList.appendChild(answerItem);
+                });
+                
+                questionElement.appendChild(answersList);
+                questionsContainer.appendChild(questionElement);
+            });
+        }
+        
+        function addQuestion(event) {
+            event.preventDefault();
+            
+            const questionInput = document.getElementById('question');
+            const answersInput = document.getElementById('answers');
+            const correctAnswerInput = document.getElementById('correct-answer');
+            
+            const question = questionInput.value;
+            const answers = answersInput.value.split(',');
+            const correctAnswer = correctAnswerInput.value;
+            
+            questions.push({
+                question: question,
+                answers: answers,
+                correctAnswer: correctAnswer
+            });
+            
+            saveQuestions();
+            renderQuestions();
+            
+            questionInput.value = '';
+            answersInput.value = '';
+            correctAnswerInput.value = '';
+        }
+        
+        document.getElementById('question-form').addEventListener('submit', addQuestion);
+        
+        renderQuestions();
+    </script>
+    <div class="bubbles">
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        <img src="Upitnik1.png">;
+        
+           </div>
+</body>
+</html>
+

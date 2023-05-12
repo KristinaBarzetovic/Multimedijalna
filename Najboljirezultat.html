@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Čuvanje najboljeg rezultata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(images.jpg) ;
+           
+        }
+        header{
+            text-align: center; 
+            font-size: 25px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 35px;
+        }
+        
+        .score-container {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 45px;
+        }
+        
+        .score-container label {
+            font-weight: bold;
+            font-size: 45px;
+        }
+        
+        .score-container input {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        
+        .score-container button {
+            margin-left: 10px;
+            font-size: 25px;
+        }
+        
+        .best-score {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .best-score label {
+            font-weight: bold;
+            font-size: 45px;
+        }
+        
+        .best-score-value {
+            font-size: 44px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <header><a href="index.html" >Pocetna</a></header>
+    <h1>Čuvanje najboljeg rezultata</h1>
+    
+    <div class="score-container">
+        <label for="score-input">Rezultat:</label>
+        <input type="number" id="score-input" required>
+        <button id="submit-score">Spremi rezultat</button>
+    </div>
+    
+    <div class="best-score">
+        <label>Najbolji rezultat:</label>
+        <span class="best-score-value">0</span>
+    </div>
+   
+    <script>
+        const bestScoreElement = document.querySelector('.best-score-value');
+        const scoreInput = document.getElementById('score-input');
+        const submitButton = document.getElementById('submit-score');
+        
+        let bestScore = localStorage.getItem('bestScore') || 0;
+        bestScoreElement.textContent = bestScore;
+        
+        submitButton.addEventListener('click', function() {
+            const score = parseInt(scoreInput.value);
+            
+            if (score > bestScore) {
+                bestScore = score;
+                bestScoreElement.textContent = bestScore;
+                localStorage.setItem('bestScore', bestScore);
+                alert('Čestitamo! Ostvarili ste novi najbolji rezultat!');
+            } else {
+                alert('Niste ostvarili najbolji rezultat')
+            }
+    
+        });
+        </script>
+    </body>
+</html>
